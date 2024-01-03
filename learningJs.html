@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning JS</title>
+    <style>
+      body {
+        background-color: #000;
+        color: gold;
+        padding: 10px 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Events in JS</h1>
+    <h3>onclick</h3>
+    <button onclick="this.innerHTML=Date()">The time is?</button>
+    <h3>onmouseover</h3>
+    <button onmouseover="this.innerHTML=Date()">The time is?</button>
+    <h3>onload</h3>
+    <button onload="this.innerHTML=Date()">The time is?</button>
+    <h3>onmouseleave</h3>
+    <button onmouseleave="this.innerHTML=Date()">The time is?</button>
+    <h3>onkeydown</h3>
+    <button onkeydown="this.innerHTML=Date()">The time is?</button>
+    <br />
+    <hr />
+  </body>
+</html>
+<script>
+  // Function in JS
+  function ShowOut(message, v1) {
+    document.write(message + "<br>" + "Result => " + v1 + "<hr>");
+  }
+  function ShowMessage(messageText) {
+    document.write(messageText + "<br>");
+  }
+  let message;
+  messageText = ` we declared with let keyword, we can't redeclare, but var keyword can
+ Variables declared with let have Block Scope
+ Variables declared with let must be Declared before use
+ Variables declared with let cannot be Redeclared in the same scope `;
+  ShowMessage(messageText);
+  let test1 = "hello";
+  messageText = `let test1="hello";  error will found`;
+  ShowMessage(messageText);
+  test1 = "hello world";
+  ShowOut(message, test1);
+  message = `const example`;
+  const test2 = "hello";
+  ShowOut(message, test2);
+  //const test2="hello world"; error will found
+  //test2="hello world"; error will found
+
+  message = `auto type casting in JS`;
+  let x = "5" + 5 + 5; // the result is string cause by auto changing datatype
+  ShowOut(message, x);
+  message = `constants in array and object and we can change constant of the array elements, but can't reassign the array like this:`;
+
+  const array1 = ["value1", "value2", "value3"];
+  ShowOut(message, array1);
+  message = `Object in JS`;
+  const object1 = { v1: "value1", v2: "value2", v3: "value3" };
+  array1[0] = "value5";
+  ShowOut(message, array1);
+  ShowOut(message, object1);
+  message = `but we can't => array1=['value4', 'value2', 'value3'];`;
+  object1.value1 = "value5";
+  ShowOut(message, object1);
+  message = `but we can't => object1={v1:'value5', v2:'value2', v3:'value3'};`;
+
+  message = `Accessing value from array`;
+  // Array
+  ShowOut(message, array1[0]);
+  // Object
+  message = `Accessing value from Object`;
+  ShowOut(message, object1.v1);
+  ShowOut(message, object1["v1"]);
+
+  messageText = `Operators in JS
+  =====
+  There are different types of JavaScript operators:
+
+  Arithmetic Operators = +, -, *, /, ++, --, **
+  Assignment Operators = =, ==, +=, -=, *=, %=, /=, **=
+  Comparison Operators = <=,  >=, ==, ===, !=, !==,
+  String Operators = "4" + "5";
+  Logical Operators = &&, ||, !
+  Bitwise Operators = &=, ^=, |=`;
+  ShowMessage(messageText);
+  document.write("<br><br><br>");
+  messageText = `let ao1=10; ao2=20;`;
+  ShowMessage(messageText);
+  let ao1 = 10;
+  ao2 = 20;
+  message = "+";
+  let ao3 = ao1 + ao2;
+  ShowOut(message, ao3);
+  message = "-";
+  ao3 = ao1 - ao2;
+  ShowOut(message, ao3);
+  message = "*";
+  ao3 = ao1 * ao2;
+  ShowOut(message, ao3);
+  message = "/";
+  ao3 = ao1 / ao2;
+  ShowOut(message, ao3);
+  message = "%";
+  ao3 = ao1 % ao2;
+  ShowOut(message, ao3);
+  message = "+=";
+  ao3 += ao2;
+  ShowOut(message, ao3);
+  message = "-=";
+  ao3 -= ao2;
+  ShowOut(message, ao3);
+  message = "*=";
+  ao3 *= ao2;
+  ShowOut(message, ao3);
+  message = "/=";
+  ao3 /= ao2;
+  ShowOut(message, ao3);
+  message = "%=";
+  ao3 %= ao2;
+  ShowOut(message, ao3);
+
+  messageText = `Operator Precedence in JS    low to high => (), +, -, *, /`;
+  ShowMessage(messageText);
+  messageText = `Datatypes in JS => String, Number, Bigint, Undefined, boolean, Symbol, Object`;
+  ShowMessage(messageText);
+  let eString = "this is string";
+  message = "String";
+  ShowOut(message, eString);
+  let eNumber = 20;
+  let eNumber2 = 30.2;
+  message = "Number";
+  ShowOut(message, eNumber);
+  let eBigint = BigInt("1234567890");
+  message = "BigInt";
+  ShowOut(message, eBigint);
+  let eBoolean = true;
+  eBoolean2 = false;
+  message = "Boolean";
+  ShowOut(message, eBoolean);
+  let eUndefined;
+  message = "Undefined";
+  ShowOut(message, eUndefined);
+  let eSymbol = "symbol";
+  message = "Symbol";
+  ShowOut(message, eSymbol);
+  let eObject = { e1: "hello", e2: "world" };
+  message = "Object";
+  ShowOut(message, eObject);
+
+  messageText = `we can use typeOf method to check the type of the data types    e.g=> typeOf(x);`;
+  ShowMessage(messageText);
+  const person = {
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName: function () {
+      return this.firstName + " " + this.lastName;
+    },
+  };
+  ShowOut(message, person);
+  messageText = ` this keyword
+=====
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+ this keyword is refers to the person object;`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+  messageText = `In an object method, this refers to the object.
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an event, this refers to the element that received the event.
+Methods like call(), apply(), and bind() can refer this to any object.
+`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+
+  const arr = ["mango", "apple", "lemon"];
+  message = "";
+  let result;
+  messageText = `array methods
+=============
+->length()`;
+  result = arr.length;
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `->toString `;
+  result = arr.toString;
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `->pop     =>remove last element`;
+  result = arr.pop();
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `->push		=>add new element in last`;
+  result = arr.push("banana");
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `->shift		=>remove first element in an array`;
+  result = arr.shift();
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `->unshift	=>add new element in first`;
+  result = arr.unshift("Orange");
+  ShowOut(message, result);
+  ShowMessage(messageText);
+  messageText = `Number()	=>changing to number format`;
+  ShowMessage(messageText);
+  messageText = `join("/")	=>joining the array elements with some specific value`;
+  ShowMessage(messageText);
+  messageText = `concat() e.g: Array1.concat(Array2);	=>joining the two or more arrays`;
+  ShowMessage(messageText);
+  messageText = `splice() e.g: fruits.splice(2, 0, "Lemon", "Kiwi");`;
+  ShowMessage(messageText);
+
+  messageText = ` String Methods
+=====
+toUpperCase() and toLowerCase()
+=====
+e.g
+let text1 = "Hello World!";       // String
+let text2 = text1.toLowerCase();  // text2 is text1 converted to lower`;
+  ShowMessage(messageText);
+
+  messageText = `Concat()
+=====
+let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+  messageText = ` JS remove whitespace from the string by using trim().`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+  messageText = `slice and substring Different  // slice allow and count negative value from the last but substring count all negative as 0.`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+
+  messageText = `slice and substring example`;
+  ShowMessage(messageText);
+  document.write("<hr>");
+  messageText = `let text = "Apple, Banana, Kiwi";`;
+  ShowMessage(messageText);
+  let text = "Apple, Banana, Kiwi";
+  ShowOut(message, text);
+  messageText = `let part = text.slice(7,13); // will slice from the start position 7 and from the next start position`;
+  ShowMessage(messageText);
+  let part = text.slice(7, 13);
+  
+  ShowOut(message, part);
+</script>
